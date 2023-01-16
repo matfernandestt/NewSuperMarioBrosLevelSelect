@@ -121,7 +121,8 @@ public class WorldMapPlayer : MonoBehaviour
             for (var i = 0; i < line.positionCount; i++)
             {
                 var finalPos = line.GetPosition(i);
-                transform.forward = finalPos - transform.position;
+                if(i > 0)
+                    transform.forward = finalPos - transform.position;
                 transform.position = finalPos;
                 yield return null;
             }
@@ -131,7 +132,8 @@ public class WorldMapPlayer : MonoBehaviour
             for (var i = line.positionCount - 1; i >= 0; i--)
             {
                 var finalPos = line.GetPosition(i);
-                transform.forward = finalPos - transform.position;
+                if(i > 0)
+                    transform.forward = finalPos - transform.position;
                 transform.position = finalPos;
                 yield return null;
             }
